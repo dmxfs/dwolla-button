@@ -1,120 +1,71 @@
-.d-btn{
-    background:#fecc5f;
-    background:-webkit-gradient(linear,left top,left bottom,color-stop(#feda71,0),color-stop(#febb4a,1));
-    background:-webkit-linear-gradient(top, #feda71 0%, #febb4a 100%);
-    background:-moz-linear-gradient(top, #feda71 0%, #febb4a 100%);
-    background:-o-linear-gradient(top, #feda71 0%, #febb4a 100%);
-    background:linear-gradient(top, #feda71 0%, #febb4a 100%);
-    filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#feda71', endColorstr='#febb4a',GradientType=0 );
-    padding-left:20px;
-    padding-right:80px;
-    height:38px;
-    display:inline-block;
-    position:relative;
-    border:1px solid #f5b74e;
-    border-color:#f5b74e #e5a73e #d6982f;
-    -webkit-box-shadow:0 1px 1px #d3d3d3, inset 0 1px 0 #fee395;
-    -moz-box-shadow:0 1px 1px #d3d3d3, inset 0 1px 0 #fee395;
-    box-shadow:0 1px 1px #d3d3d3, inset 0 1px 0 #fee395;
-    -moz-border-radius:20px;
-    border-radius:20px;
-    margin:10px 0px;
+.d-btn {
+    background:#de6d01;
+    background:-webkit-gradient(linear,left top,left bottom,color-stop(#e98f02,0),color-stop(#de6d01,1));
+    background:-webkit-linear-gradient(top, #e98f02 0%, #de6d01 100%);
+    background:-moz-linear-gradient(top, #e98f02 0%, #de6d01 100%);
+    background:-o-linear-gradient(top, #e98f02 0%, #de6d01 100%);
+    background:linear-gradient(top, #e98f02 0%, #de6d01 100%);
+    filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#e98f02', endColorstr='#de6d01',GradientType=0 );
+
+    padding: 0;
+    margin: 0;
+
+    height: 38px;
+    display: inline-block;
+    position: relative;
+
+    -webkit-border-radius:5px;
+    -moz-border-radius:5px;
+    border-radius:5px;
+    border: 1px solid #c36002;
+
+    -webkit-box-shadow:0 1px 1px #d3d3d3, inset 0 1px 0 #fbad46;
+    -moz-box-shadow:0 1px 1px #d3d3d3, inset 0 1px 0 #fbad46;
+    box-shadow:0 1px 1px #d3d3d3, inset 0 1px 0 #fbad46;
+
     overflow:hidden;
-    -webkit-transition:all 0.2s linear;
-    -moz-transition:all 0.2s linear;
-    -o-transition:all 0.2s linear;
-    transition:all 0.2s linear;
 }
-.d-btn-text{
-    padding-top:5px;
-    display:block;
+    .d-btn:hover {
+        background:#de6d01;
+        -webkit-box-shadow:0px 1px 0px rgba(255,255,255,0.3) inset;
+        -moz-box-shadow:0px 1px 0px rgba(255,255,255,0.3) inset;
+        box-shadow:0px 1px 0px rgba(255,255,255,0.3) inset;
+    }
+    .d-btn:active {
+        position:relative;
+        background:#de6d01;
+        -webkit-box-shadow:inset 0 0 7px #823f00;
+        -moz-box-shadow:inset 0 0 7px #823f00;
+        box-shadow:inset 0 0 7px #823f00;
+    }
+
+.d-btn-text {
+	display: block;
+    line-height: 38px;
+    padding: 0 42px 0 20px;
+    white-space: nowrap;
+
+    background: transparent url(dwolla-logo-pay-btn.png) 5px bottom no-repeat;
+
     font-family: Oswald, Arial, sans-serif;
-    font-size:18px;
-    white-space:nowrap;
-    color:#996633;
-    text-shadow:0 1px 0 #fedd9b;
-    -webkit-transition:all 0.2s linear;
-    -moz-transition:all 0.2s linear;
-    -o-transition:all 0.2s linear;
-    transition:all 0.2s linear;
+    font-size: 13px;
+    color: #fff;
+    text-shadow: 0 -1px 0 #bc5c00;
 }
-.d-btn-slide-text{
-    position:absolute;
-    height:100%;
-    top:0px;
-    right:52px;
-    width:0px;
-    background:#fff;
-    color:#996633;
-    font-size:18px;
-    white-space:nowrap;
-    text-transform:uppercase;
-    text-align:left;
-    text-indent:10px;
-    overflow:hidden;
-    line-height:38px;
-    -webkit-box-shadow:-1px 0px 1px rgba(255,255,255,0.4), 1px 1px 1px rgba(0,0,0,0.5) inset;
-    -moz-box-shadow:-1px 0px 1px rgba(255,255,255,0.4), 1px 1px 1px rgba(0,0,0,0.5) inset;
-    box-shadow:-1px 0px 1px rgba(255,255,255,0.4), 1px 1px 1px rgba(0,0,0,0.5) inset;
-    -webkit-transition:width 0.2s linear;
-    -moz-transition:width 0.2s linear;
-    -o-transition:width 0.2s linear;
-    transition:width 0.2s linear;
+
+.d-btn-icon{
+    display: block;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+
+    height: 100%;
+    width: 30px;
+
+    opacity: 0.4;
+
+    background: transparent url(arrow-pay-now.png) no-repeat 0% 55%;
 }
-.d-btn-icon-right{
-    position:absolute;
-    right:0px;
-    top:0px;
-    height:100%;
-    width:52px;
-    border-left:1px solid #f5b74e;
-    -webkit-box-shadow:1px 0px 1px rgba(255,255,255,0.4) inset;
-    -moz-box-shadow:1px 0px 1px rgba(255,255,255,0.4) inset;
-    box-shadow:1px 0px 1px rgba(255,255,255,0.4) inset;
-}
-.d-btn-icon-right span{
-    width:38px;
-    height:38px;
-    opacity:0.7;
-    position:absolute;
-    left:50%;
-    top:50%;
-    margin:-20px 0px 0px -20px;
-    background:transparent url(arrow_right.png) no-repeat 50% 55%;
-    -webkit-transition:all 0.2s linear;
-    -moz-transition:all 0.2s linear;
-    -o-transition:all 0.2s linear;
-    transition:all 0.2s linear;
-}
-.d-btn:hover{
-    padding-right:145px;
-    -webkit-box-shadow:0px 1px 1px rgba(255,255,255,0.8) inset, 1px 1px 5px rgba(0,0,0,0.4);
-    -moz-box-shadow:0px 1px 1px rgba(255,255,255,0.8) inset, 1px 1px 5px rgba(0,0,0,0.4);
-    box-shadow:0px 1px 1px rgba(255,255,255,0.8) inset, 1px 1px 5px rgba(0,0,0,0.4);
-}
-.d-btn:hover .d-btn-text{
-    text-shadow:0px 1px 1px rgba(0,0,0,0.2);
-    color:#fff;
-}
-.d-btn:hover .d-btn-slide-text{
-    width:65px;
-}
-.d-btn:hover .d-btn-icon-right span{
-    opacity:1;
-}
-.d-btn:active{
-    position:relative;
-    top:1px;
-    background:#fec354;
-    background:-webkit-gradient(linear,left top,left bottom,color-stop(#fec354,0),color-stop(#fecd61,1));
-    background:-webkit-linear-gradient(top, #fec354 0%, #fecd61 100%);
-    background:-moz-linear-gradient(top, #fec354 0%, #fecd61 100%);
-    background:-o-linear-gradient(top, #fec354 0%, #fecd61 100%);
-    background:linear-gradient(top, #fec354 0%, #fecd61 100%);
-    filter:progid:DXImageTransform.Microsoft.gradient( startColorstr='#fec354', endColorstr='#fecd61',GradientType=0 );
-    border-color:#d29a3a #cc9436 #c89133;
-    text-shadow:0 1px 0 #fee1a0;
-    -webkit-box-shadow:0 1px 1px #d4d4d4, inset 0 1px 0 #fed17e;
-    -moz-box-shadow:0 1px 1px #d4d4d4, inset 0 1px 0 #fed17e;
-    box-shadow:0 1px 1px #d4d4d4, inset 0 1px 0 #fed17e;
-}
+    .d-btn:hover .d-btn-icon {
+        opacity: 1;
+    }
