@@ -1,15 +1,33 @@
 var DwollaBtn = DwollaBtn || (function(){
-    var _args = {};
+    var _args = {
+    	cssURI: 'button.css',
+    	dwollaPayAction: 'https://www.dwolla.com/payment/pay',
+    	defaultKey: 'NrGOvb6djfAR9Pb2U1Jho+f+fuPRSuEUTfCiiJevNH2K/u4NQg',
+    	defaultSecret: 'PIJI6kXaRmbBVi2sgfRSdgqEjioIIbwOiMC+UvTQd/Oy5cWbU7'
+    };
 
     return {
         init : function() {
+        	// Append CSS
+        	this.appendCSS();
+
         	// Create instances of the crypto library
         	this.cryptoFn();
         	this.HMACFn();
         	this.SHA1Fn();
 
+        	// Bind buttons
         	this.registerButtons();
         	this.styleButtons();
+        },
+        appendCSS: function() {
+        	var cssFile = $('<link/>', {
+        		'rel': 'stylesheet',
+        		'type': 'text/css',
+        		'href': _args.cssURI
+        	});
+
+        	$('head').append(cssFile);
         },
         styleButtons: function() {
         	$('.dwolla_button').each(function() {
@@ -17,27 +35,27 @@ var DwollaBtn = DwollaBtn || (function(){
 	        		styledBtn = el.clone(),
         			amount = el.attr('data-amount');
 
-        		var btnText = $('<span/>', { 'class': 'a-btn-text', 'html': el.html()}),
-        			btnSlideText = $('<span/>', { 'class': 'a-btn-slide-text', 'html': '$' + amount}),
-        			btnIcon = $('<span/>', { 'class': 'a-btn-icon-right', 'html': '<span></span>'});
+        		var btnText = $('<span/>', { 'class': 'd-btn-text', 'html': el.html()}),
+        			btnSlideText = $('<span/>', { 'class': 'd-btn-slide-text', 'html': '$' + amount}),
+        			btnIcon = $('<span/>', { 'class': 'd-btn-icon-right', 'html': '<span></span>'});
 
         		styledBtn
         			.empty()
         			.append(btnText)
         			.append(btnSlideText)
         			.append(btnIcon)
-        			.addClass('a-btn')
+        			.addClass('d-btn')
         			.unbind('mouseover mouseout')
         			.bind({
         				mouseover: function() {
         					styledBtn
         						.css({'padding-right': 80 + (amount.length * 15)})
-        						.find('.a-btn-slide-text').width(amount.length * 15);
+        						.find('.d-btn-slide-text').width(amount.length * 15);
         				},
         				mouseout: function() {
         					styledBtn
         						.css({'padding-right': 80})
-        						.find('.a-btn-slide-text').width(0);
+        						.find('.d-btn-slide-text').width(0);
         				}
         			})
 
@@ -53,12 +71,12 @@ var DwollaBtn = DwollaBtn || (function(){
         		var el = $(this),
         			form = $('<form/>', {
         				'method': 'POST',
-        				'action': 'https://www.dwolla.com/payment/pay'
+        				'action': _args.dwollaPayAction
 	        		});
 
 	        	// Create and append inputs
 	        	var time = Math.floor((new Date).getTime() / 1000),
-	        		key = el.attr('data-key') || 'NrGOvb6djfAR9Pb2U1Jho+f+fuPRSuEUTfCiiJevNH2K/u4NQg',
+	        		key = el.attr('data-key') || _args.defaultKey,
 	        		inputs = {
 		        		destinationId: el.attr('data-dest'),
 		        		amount: el.attr('data-amount'),
@@ -70,7 +88,7 @@ var DwollaBtn = DwollaBtn || (function(){
 
 		        		key: key,
 		        		timestamp: time,
-		        		signature: DwollaBtn.Crypto.HMAC(DwollaBtn.Crypto.SHA1, key + '&' + time + '&', 'PIJI6kXaRmbBVi2sgfRSdgqEjioIIbwOiMC+UvTQd/Oy5cWbU7')
+		        		signature: DwollaBtn.Crypto.HMAC(DwollaBtn.Crypto.SHA1, key + '&' + time + '&', _args.defaultSecret)
 		        	};
 	        	for(key in inputs) {
 	        		var input = $('<input/>', {
