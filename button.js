@@ -1,8 +1,7 @@
 var DwollaBtn = DwollaBtn || (function(){
     var _args = {
     	cssURI: 'button.css',
-    	dwollaPayAction: 'https://www.dwolla.com/payment/pay',
-    	defaultKey: 'NrGOvb6djfAR9Pb2U1Jho+f+fuPRSuEUTfCiiJevNH2K/u4NQg'
+    	dwollaPayAction: 'https://www.dwolla.com/payment/pay'
     };
 
     return {
@@ -69,9 +68,7 @@ var DwollaBtn = DwollaBtn || (function(){
 	        		});
 
 	        	// Create and append inputs
-	        	var time = Math.floor((new Date).getTime() / 1000),
-	        		key = el.attr('data-key') || _args.defaultKey,
-	        		inputs = {
+	        	var inputs = {
 		        		destinationId: el.attr('data-dest'),
 		        		amount: el.attr('data-amount'),
 		        		shipping: el.attr('data-shipping'),
@@ -79,7 +76,7 @@ var DwollaBtn = DwollaBtn || (function(){
 		        		name: el.attr('data-name'),
 		        		desc: el.attr('data-desc'),
 		        		redirect: el.attr('href'),
-		        		key: key
+		        		key: el.attr('data-key')
 		        	};
 	        	for(key in inputs) {
 	        		var input = $('<input/>', {
