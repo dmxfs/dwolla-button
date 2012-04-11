@@ -1,7 +1,7 @@
 var DwollaBtn = DwollaBtn || (function(){
     var _args = {
-    	cssURI: 'button.css',
-    	dwollaPayAction: 'https://www.dwolla.com/payment/pay'
+    	cssURI: 'button.css', // This should point to where the css file lives
+    	dwollaPayAction: 'https://www.dwolla.com/payment/pay' // This should point to Dwolla's Payment endpoint
     };
 
     return {
@@ -11,36 +11,44 @@ var DwollaBtn = DwollaBtn || (function(){
 
         	// Bind buttons
         	this.registerButtons();
+
+        	// Style buttons
         	this.styleButtons();
         },
         appendCSS: function() {
+        	// Create the <link> tag
         	var cssFile = $('<link/>', {
         		'rel': 'stylesheet',
         		'type': 'text/css',
         		'href': _args.cssURI
         	});
 
+        	// Append the tag to the <head>
         	$('head').append(cssFile);
         },
         styleButtons: function() {
+        	// Iterate thru every dwolla button on the page
         	$('.dwolla_button').each(function() {
         		var el = $(this),
 	        		styledBtn = el.clone(),
         			amount = el.attr('data-amount');
 
+        		// Create the animated button's different elements
         		var btnText = $('<span/>', { 'class': 'd-btn-text', 'html': el.html()}),
         			btnSlideText = $('<span/>', { 'class': 'd-btn-slide-text', 'html': '$' + amount}),
         			btnIcon = $('<span/>', { 'class': 'd-btn-icon-right', 'html': '<span></span>'});
 
+        		// Append the various elements to the styled button element
         		styledBtn
         			.empty()
         			.append(btnText)
         			.append(btnSlideText)
         			.append(btnIcon)
         			.addClass('d-btn')
-        			.unbind('mouseover mouseout')
-        			.bind({
+        			.unbind('mouseover mouseout') // Clear out any old listeners
+        			.bind({ // Register hover listeners
         				mouseover: function() {
+        					// Expand button to fit price text
         					styledBtn
         						.css({'padding-right': 80 + (amount.length * 15)})
         						.find('.d-btn-slide-text').width(amount.length * 15);
@@ -52,15 +60,20 @@ var DwollaBtn = DwollaBtn || (function(){
         				}
         			})
 
+        		// Finally, replace the old button with 
+        		// the new styled one
         		el.replaceWith(styledBtn);
         	})
         },
         registerButtons: function() {
         	$('.dwolla_button')
-        	.unbind('click.DwollaBtn')
-        	.live('click.DwollaBtn', function(e) {
+        	.unbind('click.DwollaBtn') // Clear out any old listeners
+        	.live('click.DwollaBtn', function(e) { // Register our listener in our namespace
+        		// Avoid any unwanted actions from the
+        		// button element
         		e.preventDefault();
 
+        		// Create a dynamic form
         		var el = $(this),
         			form = $('<form/>', {
         				'method': 'POST',
@@ -87,6 +100,7 @@ var DwollaBtn = DwollaBtn || (function(){
 	        		form.append(input);
 	        	}
 
+	        	// Put the form in the body and submit
 	        	$('body').append(form);
 	        	form.submit();
 
