@@ -58,7 +58,7 @@ var DwollaBtn = DwollaBtn || (function(){
 
 	        	// Create and append inputs
 	        	var time = Math.floor((new Date).getTime() / 1000),
-	        		key = 'NrGOvb6djfAR9Pb2U1Jho+f+fuPRSuEUTfCiiJevNH2K/u4NQg',
+	        		key = el.attr('data-key') || 'NrGOvb6djfAR9Pb2U1Jho+f+fuPRSuEUTfCiiJevNH2K/u4NQg',
 	        		inputs = {
 		        		destinationId: el.attr('data-dest'),
 		        		amount: el.attr('data-amount'),
