@@ -108,8 +108,7 @@ var DwollaBtn = DwollaBtn || (function(){
 
                     // Put the form in the body and submit
                     document.getElementsByTagName('body')[0].appendChild(form);
-                    //form.submit();
-                    alert('a');
+                    form.submit();
 
                     // Don't continue to the href
                     return false;                    
