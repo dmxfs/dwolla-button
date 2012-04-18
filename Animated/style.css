@@ -387,9 +387,9 @@ section {
 
   -moz-border-radius: 20px;
   border-radius: 20px;
-  -webkit-box-shadow: 0 1px 1px #d3d3d3 inset 0 1px 0 #fee395;
-  -moz-box-shadow: 0 1px 1px #d3d3d3 inset 0 1px 0 #fee395;
-  box-shadow: 0 1px 1px #d3d3d3 inset 0 1px 0 #fee395;
+  -webkit-box-shadow: 0 1px 1px #d3d3d3, inset 0 1px 0 #fee395;
+  -moz-box-shadow: 0 1px 1px #d3d3d3, inset 0 1px 0 #fee395;
+  box-shadow: 0 1px 1px #d3d3d3, inset 0 1px 0 #fee395;
   -webkit-transition: all 0.2s linear;
   -moz-transition: all 0.2s linear;
   transition: all 0.2s linear;
@@ -405,9 +405,9 @@ section {
 }
 .d-btn:hover {
   padding-right: 145px;
-  -webkit-box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.8) inset 1px 1px 5px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.8) inset 1px 1px 5px rgba(0, 0, 0, 0.4);
-  box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.8) inset 1px 1px 5px rgba(0, 0, 0, 0.4);
+  -webkit-box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 5px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0px 1px 1px rgba(255, 255, 255, 0.8) inset, 1px 1px 5px rgba(0, 0, 0, 0.4);
 }
 .d-btn:hover .d-btn-text {
   text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.2);
@@ -453,9 +453,9 @@ section {
 
   border-color: #d29a3a #cc9436 #c89133;
   text-shadow: 0 1px 0 #fee1a0;
-  -webkit-box-shadow: 0 1px 1px #d4d4d4 inset 0 1px 0 #fed17e;
-  -moz-box-shadow: 0 1px 1px #d4d4d4 inset 0 1px 0 #fed17e;
-  box-shadow: 0 1px 1px #d4d4d4 inset 0 1px 0 #fed17e;
+  -webkit-box-shadow: 0 1px 1px #d4d4d4, inset 0 1px 0 #fed17e;
+  -moz-box-shadow: 0 1px 1px #d4d4d4, inset 0 1px 0 #fed17e;
+  box-shadow: 0 1px 1px #d4d4d4, inset 0 1px 0 #fed17e;
 }
 .d-btn-text {
   background: transparent url(dwolla-logo-pay-btn.png) 5px bottom no-repeat;
@@ -486,9 +486,9 @@ section {
   text-indent: 10px;
   overflow: hidden;
   line-height: 38px;
-  -webkit-box-shadow: -1px 0px 1px rgba(255, 255, 255, 0.4) 1px 1px 1px rgba(0, 0, 0, 0.5) inset;
-  -moz-box-shadow: -1px 0px 1px rgba(255, 255, 255, 0.4) 1px 1px 1px rgba(0, 0, 0, 0.5) inset;
-  box-shadow: -1px 0px 1px rgba(255, 255, 255, 0.4) 1px 1px 1px rgba(0, 0, 0, 0.5) inset;
+  -webkit-box-shadow: -1px 0px 1px rgba(255, 255, 255, 0.4), 1px 1px 1px rgba(0, 0, 0, 0.5) inset;
+  -moz-box-shadow: -1px 0px 1px rgba(255, 255, 255, 0.4), 1px 1px 1px rgba(0, 0, 0, 0.5) inset;
+  box-shadow: -1px 0px 1px rgba(255, 255, 255, 0.4), 1px 1px 1px rgba(0, 0, 0, 0.5) inset;
   -webkit-transition: width 0.2s linear;
   -moz-transition: width 0.2s linear;
   transition: width 0.2s linear;
@@ -500,9 +500,9 @@ section {
   height: 100%;
   width: 52px;
   border-left: 1px solid #c36002;
-  -webkit-box-shadow: 1px 0px 1px rgba(255, 255, 255, 0.4) inset '';
-  -moz-box-shadow: 1px 0px 1px rgba(255, 255, 255, 0.4) inset '';
-  box-shadow: 1px 0px 1px rgba(255, 255, 255, 0.4) inset '';
+  -webkit-box-shadow: 1px 0px 1px rgba(255, 255, 255, 0.4) inset, '';
+  -moz-box-shadow: 1px 0px 1px rgba(255, 255, 255, 0.4) inset, '';
+  box-shadow: 1px 0px 1px rgba(255, 255, 255, 0.4) inset, '';
 }
 .d-btn-icon-right span {
   width: 38px;
