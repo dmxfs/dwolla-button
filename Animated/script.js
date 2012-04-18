@@ -32,7 +32,6 @@ $(function() {
 				'data-amount'	: values.amount,
 				'data-shipping'	: values.shipping || 0,
 				'data-tax'		: values.tax || 0,
-				'data-key'		: values.key
 			});
 
 		btn_el.html(btn);
@@ -45,10 +44,6 @@ $(function() {
 
 	$('.params input').keyup(function() {
 		generateButtonCode();
-	});
-
-	$('.advanced_btn').click(function() {
-		$('.advanced').slideToggle();
 	});
 
 	generateButtonCode();
