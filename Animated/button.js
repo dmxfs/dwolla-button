@@ -53,7 +53,6 @@ var DwollaBtn = DwollaBtn || (function(){
 
 	        	// Create and append inputs
 	        	var time = Math.floor((new Date).getTime() / 1000),
-	        		key = 'NrGOvb6djfAR9Pb2U1Jho+f+fuPRSuEUTfCiiJevNH2K/u4NQg',
 	        		inputs = {
 		        		destinationId: el.attr('data-dest'),
 		        		amount: el.attr('data-amount'),
@@ -62,10 +61,7 @@ var DwollaBtn = DwollaBtn || (function(){
 		        		name: el.attr('data-name'),
 		        		desc: el.attr('data-desc'),
 		        		redirect: el.attr('href'),
-
-		        		key: key,
-		        		timestamp: time,
-		        		signature: DwollaBtn.Crypto.HMAC(DwollaBtn.Crypto.SHA1, key + '&' + time + '&', 'PIJI6kXaRmbBVi2sgfRSdgqEjioIIbwOiMC+UvTQd/Oy5cWbU7')
+		        		key: el.attr('key')
 		        	};
 	        	for(key in inputs) {
 	        		var input = $('<input/>', {
