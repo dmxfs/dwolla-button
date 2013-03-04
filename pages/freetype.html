@@ -1,0 +1,18 @@
+<html>
+	<head>
+	</head>
+	<body>
+    
+    <!-- BEGIN DWOLLA FREE-TYPE BOX -->
+    <div id="dwolla-donation-module">
+    	<label style="display: block; margin: 0 0 5px;">Enter Your Total Bill Amount:</label>
+    	<input type="text" onChange="this.parentNode.getElementsByTagName('a')[0].setAttribute('data-amount', this.value.replace('$', ''));" style="display: block; width: 195px; margin: 0 0 15px;" value="$500.00" />
+
+    	<a href="http://www.baconseason.com" class="dwolla_button" data-guest-checkout="true" data-name="Product Name" data-desc="Product Description" data-amount="500.00" data-shipping="0" data-tax="0" data-key="%%%KEY%%%">Pay with Dwolla</a>
+    </div>
+    
+    <script type="text/javascript" src="https://www.dwolla.com/scripts/button.min.js"> </script>
+    <!-- END DWOLLA FREE-TYPE BOX -->
+    
+	</body>
+</html>

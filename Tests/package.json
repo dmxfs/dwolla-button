@@ -1,0 +1,7 @@
+{
+  "name": "dwolla-button-tests",
+  "version": "1.0.0",
+  "dependencies": {
+    "zombie": "1.3.1"
+  }
+}
