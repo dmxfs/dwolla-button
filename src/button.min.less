@@ -1,4 +1,13 @@
+/**
+ * Dwolla Payment Button Style Sheet
+ *
+ * @version 3.0.0
+ * @author Michael Schonfeld <michael@dwolla.com>
+ * @url https://developers.dwolla.com
+ */
+
 .d-btn {
+    .clearfix;
     background:#de6d01;
     background:-webkit-gradient(linear,left top,left bottom,color-stop(#e98f02,0),color-stop(#de6d01,1));
     background:-webkit-linear-gradient(top, #e98f02 0%, #de6d01 100%);
@@ -64,4 +73,60 @@
 	    opacity: 0.4;
 	    background: transparent url(https://www.dwolla.com/content/images/arrow-pay-now.png) no-repeat 0% 55%;
 	}
+
+    &.d-btn-freetype {
+        .d-btn-text {
+            float: left;
+            padding: 0 0 0 20px;
+        }
+        input {
+            display: block;
+            float: left;
+            margin: 4px 42px 0 10px;
+            padding: 7px 5px 5px 15px;
+            border: 1px solid #DDD;
+            outline: none;
+            width: 60px;
+            background-color: #fbe6ce;
+            background-image: url(https://www.dwolla.com/content/images/dollar-sign.png);
+            background-position: 4px 50%;
+            background-repeat: no-repeat;
+            border-radius: 2px;
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            -khtml-border-radius: 2px;
+            -o-border-radius: 2px;
+            font-weight: 300;
+            font-family: 'Helvetica Neue';
+            font-size: 14px;
+        }
+    }
+
+    &.d-btn-options {
+        .d-btn-text {
+            float: left;
+            padding: 0 0 0 20px;
+        }
+        select {
+            display: block;
+            float: left;
+            margin: 9px 42px 0 10px;
+            background: #fbe6ce;
+        }
+    }
+}
+
+.clearfix {
+  *zoom: 1;
+  &:before,
+  &:after {
+    display: table;
+    content: "";
+    // Fixes Opera/contenteditable bug:
+    // http://nicolasgallagher.com/micro-clearfix-hack/#comment-36952
+    line-height: 0;
+  }
+  &:after {
+    clear: both;
+  }
 }

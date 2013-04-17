@@ -3,7 +3,7 @@
 
 ## Version 
 
-1.0.0
+3.0.0
 
 ## Installation
 
@@ -13,11 +13,14 @@
 
 This repo includes various usage examples, including:
 
-* Simple static buttons [simple.html]
-* Advanced static buttons [advanced.html]
-* Free-type amount box button [freetype.html]
+* Various buttons exampls [examples/buttons.html]
 
 ## Changelog
+
+3.0.0
+
+* Complete JS rewrite
+* Added button types
 
 1.0.0
 
