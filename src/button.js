@@ -1,101 +1,101 @@
 /**
  * Dwolla Payment Button Helper Script
  *
- * @version 3.0.0
+ * @version 3.0.1
  * @author Michael Schonfeld <michael@dwolla.com>
  * @url https://developers.dwolla.com
  */
 
 (function (window) {
 window.DOMReady = (function () {
-	// Private vars
-	var fns = [],
-		isReady = false,
-		errorHandler = null,
-		run = function (fn, args) {
-			try {
-				// call function
-				fn.apply(this, args || []);
-			} catch(err) {
-				// error occured while executing function
-				if (errorHandler)
-					errorHandler.call(this, err);
-			}
-		},
-		ready = function () {
-			isReady = true;
+  // Private vars
+  var fns = [],
+    isReady = false,
+    errorHandler = null,
+    run = function (fn, args) {
+      try {
+        // call function
+        fn.apply(this, args || []);
+      } catch(err) {
+        // error occured while executing function
+        if (errorHandler)
+          errorHandler.call(this, err);
+      }
+    },
+    ready = function () {
+      isReady = true;
 
-			// call all registered functions
-			for (var x = 0; x < fns.length; x++)
-				run(fns[x].fn, fns[x].args || []);
+      // call all registered functions
+      for (var x = 0; x < fns.length; x++)
+        run(fns[x].fn, fns[x].args || []);
 
-			// clear handlers
-			fns = [];
-		};
+      // clear handlers
+      fns = [];
+    };
 
-	/**
-	 * Set error handler
-	 * @static
-	 * @param {Function} fn
-	 * @return {DOMReady} For chaining
-	 */
-	this.setOnError = function (fn) {
-		errorHandler = fn;
+  /**
+   * Set error handler
+   * @static
+   * @param {Function} fn
+   * @return {DOMReady} For chaining
+   */
+  this.setOnError = function (fn) {
+    errorHandler = fn;
 
-		// return this for chaining
-		return this;
-	};
+    // return this for chaining
+    return this;
+  };
 
-	/**
-	 * Add code or function to execute when the DOM is ready
-	 * @static
-	 * @param {Function} fn
-	 * @param {Array} args Arguments will be passed on when calling function
-	 * @return {DOMReady} For chaining
-	 */
-	this.add = function (fn, args) {
-		// call imediately when DOM is already ready
-		if (isReady) {
-			run(fn, args);
-		} else {
-			// add to the list
-			fns[fns.length] = {
-				fn: fn,
-				args: args
-			};
-		}
+  /**
+   * Add code or function to execute when the DOM is ready
+   * @static
+   * @param {Function} fn
+   * @param {Array} args Arguments will be passed on when calling function
+   * @return {DOMReady} For chaining
+   */
+  this.add = function (fn, args) {
+    // call imediately when DOM is already ready
+    if (isReady) {
+      run(fn, args);
+    } else {
+      // add to the list
+      fns[fns.length] = {
+        fn: fn,
+        args: args
+      };
+    }
 
-		// return this for chaining
-		return this;
-	};
+    // return this for chaining
+    return this;
+  };
 
-	// for all browsers except IE
-	if (window.addEventListener) {
-		window.document.addEventListener('DOMContentLoaded', function () { ready(); }, false);
-	} else {
-		// for IE
-		// code taken from http://ajaxian.com/archives/iecontentloaded-yet-another-domcontentloaded
-		(function(){
-			// check IE's proprietary DOM members
-			if (!window.document.uniqueID && window.document.expando)
-				return;
+  // for all browsers except IE
+  if (window.addEventListener) {
+    window.document.addEventListener('DOMContentLoaded', function () { ready(); }, false);
+  } else {
+    // for IE
+    // code taken from http://ajaxian.com/archives/iecontentloaded-yet-another-domcontentloaded
+    (function(){
+      // check IE's proprietary DOM members
+      if (!window.document.uniqueID && window.document.expando)
+        return;
 
-			// you can create any tagName, even customTag like <document :ready />
-			var tempNode = window.document.createElement('document:ready');
+      // you can create any tagName, even customTag like <document :ready />
+      var tempNode = window.document.createElement('document:ready');
 
-			try {
-				// see if it throws errors until after ondocumentready
-				tempNode.doScroll('left');
+      try {
+        // see if it throws errors until after ondocumentready
+        tempNode.doScroll('left');
 
-				// call ready
-				ready();
-			} catch (err) {
-				setTimeout(arguments.callee, 0);
-			}
-		})();
-	}
+        // call ready
+        ready();
+      } catch (err) {
+        setTimeout(arguments.callee, 0);
+      }
+    })();
+  }
 
-	return this;
+  return this;
 })();
 })(window);
 
@@ -107,19 +107,19 @@ if ( !window.Element )
     var __createElement = document.createElement;
     document.createElement = function(tagName)
     {
-    	var element = __createElement(tagName);
-    	for(var key in Element.prototype)
-    		element[key] = Element.prototype[key];
-    	return element;
+      var element = __createElement(tagName);
+      for(var key in Element.prototype)
+        element[key] = Element.prototype[key];
+      return element;
     }
 
     var __getElementById = document.getElementById
     document.getElementById = function(id)
     {
-    	var element = __getElementById(id);
-    	for(var key in Element.prototype)
-    		element[key] = Element.prototype[key];
-    	return element;
+      var element = __getElementById(id);
+      for(var key in Element.prototype)
+        element[key] = Element.prototype[key];
+      return element;
     }
 }
 
@@ -171,7 +171,7 @@ getElsByClass = function(cls) {
 
 var DwollaBtn = DwollaBtn || (function () {
     var _args = {
-        cssURI: 'http://www.dwolla.com/content/button.min.css' // This should point to where the css file lives
+        cssURI: 'https://www.dwolla.com/content/button.min.css' // This should point to where the css file lives
         , dwollaPayAction: 'https://www.dwolla.com/payment/pay' // This should point to Dwolla's Payment endpoint
         , dwollaMisconfiguredPage: 'https://developers.dwolla.com/button' // This should point to Dwolla's general button misconfigured page
     };
@@ -243,6 +243,7 @@ var DwollaBtn = DwollaBtn || (function () {
             this.createMarkup();
 
             // Bind buttons
+            this.clickEvent = false;
             this.registerButtons();
 
             // Handle gateway response
@@ -377,6 +378,8 @@ var DwollaBtn = DwollaBtn || (function () {
             }
         },
         registerButtons: function () {
+            if(window.DwollaClickEvent != null) { return false; }
+
             // Helper function to determine whether
             // a dwolla button was clicked
             var isDBtn = function (el, parent_el) {
@@ -419,9 +422,10 @@ var DwollaBtn = DwollaBtn || (function () {
                 }
             };
 
-            // IE 7,8
             addEvent(document, 'click', clickFn);
+            window.DwollaClickEvent = true;
         },
+
         handleResponse: function() {
             var getParameterByName = function(name) {
                 var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
@@ -429,11 +433,12 @@ var DwollaBtn = DwollaBtn || (function () {
             };
 
             if(getParameterByName('error') == 'failure' && getParameterByName('error_description')) {
-                alert('There seems to have been a problem with the transaction. Dwolla said: ' + getParameterByName('error_description'));
+                DwollaBtn.onFailure(getParameterByName('error_description'));
             }
 
             return true;
         },
+
         submitButton: function(el) {
             // Is this a valid <a/> tag?
             if(!el || el.nodeName != 'A') {
@@ -491,6 +496,10 @@ var DwollaBtn = DwollaBtn || (function () {
             // Put the form in the body and submit
             document.getElementsByTagName('body')[0].appendChild(form);
             form.submit();
+        },
+
+        onFailure: function(error_message) {
+            return false;
         }
     };
 }());
@@ -499,7 +508,7 @@ DOMReady.add(function() {
     // Grab immediate Dwolla buttons
     DwollaBtn.init();
 
-	// Refresh buttons on DOM changes
+  // Refresh buttons on DOM changes
     addEvent(document, 'DOMSubtreeModified', function() {
         DwollaBtn.init();
     });
