@@ -243,7 +243,6 @@ var DwollaBtn = DwollaBtn || (function () {
             this.createMarkup();
 
             // Bind buttons
-            this.clickEvent = false;
             this.registerButtons();
 
             // Handle gateway response
@@ -427,6 +426,8 @@ var DwollaBtn = DwollaBtn || (function () {
         },
 
         handleResponse: function() {
+            if(window.DwollaResponseEvent != null) { return false; }
+
             var getParameterByName = function(name) {
                 var match = RegExp('[?&]' + name + '=([^&]*)').exec(window.location.search);
                 return match && decodeURIComponent(match[1].replace(/\+/g, ' '));
@@ -435,6 +436,8 @@ var DwollaBtn = DwollaBtn || (function () {
             if(getParameterByName('error') == 'failure' && getParameterByName('error_description')) {
                 DwollaBtn.onFailure(getParameterByName('error_description'));
             }
+
+            window.DwollaResponseEvent = true;
 
             return true;
         },
