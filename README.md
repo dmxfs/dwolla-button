@@ -3,19 +3,19 @@
 
 ## Version 
 
-3.0.0
-
-## Installation
-
-## Usage
+3.1.1
 
 ## Examples / Quickstart
 
 This repo includes various usage examples, including:
 
-* Various buttons exampls [examples/buttons.html]
+* [examples/buttons.html](https://github.com/Dwolla/dwolla-button/blob/master/examples/buttons.html)
 
 ## Changelog
+
+3.1.1
+
+* Buttons can be loaded asynchronously.
 
 3.0.0
 
@@ -30,12 +30,11 @@ This repo includes various usage examples, including:
 
 ## Credits
 
-- Michael Schonfeld &lt;michael@dwolla.com&gt;
+- Michael Schonfeld
 
 ## Support
 
 - Dwolla API &lt;api@dwolla.com&gt;
-- Michael Schonfeld &lt;michael@dwolla.com&gt;
 
 ## References / Documentation
 
@@ -45,7 +44,7 @@ http://developers.dwolla.com/dev
 
 (The MIT License)
 
-Copyright (c) 2013 Dwolla &lt;michael@dwolla.com&gt;
+Copyright (c) 2013 Dwolla &lt;api@dwolla.com&gt;
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
